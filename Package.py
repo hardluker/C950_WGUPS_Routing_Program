@@ -16,6 +16,6 @@ class Package:
 
     #Method for converting object to string
     def __str__(self):
-        return "%s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.ID, self.address, self.city, self.state, self.zip,
+        return "%s, %s, %s, %s, %s, %s, %s, %s" % (self.ID, self.address, self.city, self.state, self.zip,
                                                        self.delivery_deadline, self.weight,
                                                        self.status)
