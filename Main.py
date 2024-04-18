@@ -2,10 +2,6 @@ import csv
 from HashTable import HashTable
 from Package import Package
 
-#Reading the Packages from the .csv, storing in a list
-with open("packages.csv") as package_file:
-    reader = csv.reader(package_file)
-    packages = list(reader)
 
 #Reading the Distances from the .csv
 with open("distances.csv") as distance_file:
@@ -15,9 +11,10 @@ with open("distances.csv") as distance_file:
 #Function for inserting the packages into the hash table
 def insert_packages(file, HashTable):
     with open(file) as package_file:
+        next(package_file) #Skipping the header in the csv file
         packages = csv.reader(package_file)
         for package in packages:
-            package_id = package[0]
+            package_id = int(package[0])
             address = package[1]
             city = package[2]
             state = package[3]
@@ -37,6 +34,4 @@ hash_table = HashTable(30)
 insert_packages("packages.csv", hash_table)
 
 
-
-hash_table.get("7").status = "yes"
-print(hash_table.get("7"))
+print(hash_table.get(7))
