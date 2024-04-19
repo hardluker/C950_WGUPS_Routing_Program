@@ -28,10 +28,11 @@ class PackageManager:
             delivery_deadline = package[5]
             weight = package[6]
             status = "In Hub"
+            priority = 1
 
             # Inputting the data into a package object
             package_to_insert = Package(package_id, address, city, state, zip_code,
-                                        delivery_deadline, weight, status)
+                                        delivery_deadline, weight, status, priority)
             hash_table.insert(package_id, package_to_insert)
 
     def get_package(self, package_id):

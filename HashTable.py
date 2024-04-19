@@ -13,18 +13,18 @@ class HashTable:
     # Insert values into hash map
     def insert(self, key, val):
 
-        #hashing the key modulo of the size to store in the specific bucket
+        # Hashing the key modulo of the size to store in the specific bucket
         hashed_key = hash(key) % self.size
 
-        #Defining the bucket per the key generated
+        # Defining the bucket per the key generated
         bucket = self.hash_table[hashed_key]
 
-        #Initializing key found as false
+        # Initializing key found as false
         key_found = False
 
-        #Iterating over the bucket defining the index of the buckets and the records within
+        # Iterating over the bucket defining the index of the buckets and the records within
         for index, record in enumerate(bucket):
-            #Tuple unpacking the record
+            # Tuple unpacking the record
             record_key, record_val = record
 
             # check if the bucket has same key as
@@ -33,9 +33,9 @@ class HashTable:
                 key_found = True
                 break
 
-        #If the key is the same, overwrite it.
-        #Otherwise, append it within the bucket.
-        #This is chaining and is a solution for collisions
+        # If the key is the same, overwrite it.
+        # Otherwise, append it within the bucket.
+        # This is chaining and is a solution for collisions
         if key_found:
             bucket[index] = (key, val)
         else:
