@@ -20,7 +20,7 @@ class PackageManager:
 
     def insert_packages_into_hash_table(self, packages, hash_table):
         for package in packages:
-            id = int(package[0])
+            package_id = int(package[0])
             address = package[1]
             city = package[2]
             state = package[3]
@@ -30,9 +30,9 @@ class PackageManager:
             status = "In Hub"
 
             # Inputting the data into a package object
-            package_to_insert = Package(id, address, city, state, zip_code,
+            package_to_insert = Package(package_id, address, city, state, zip_code,
                                         delivery_deadline, weight, status)
-            hash_table.insert(id, package_to_insert)
+            hash_table.insert(package_id, package_to_insert)
 
     def get_package(self, package_id):
         return self.hash_table.get(package_id)
