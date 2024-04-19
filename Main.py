@@ -1,6 +1,7 @@
 import csv
 from HashTable import HashTable
 from Package import Package
+from AddressManager import AddressManager
 from Truck import Truck
 
 #Function for inserting the packages into the hash table
@@ -31,11 +32,18 @@ hash_table = HashTable(30)
 insert_packages_into_hash_table("CSV_Files/Packages.csv", hash_table)
 
 
-#Reading the Distances from the .csv
-with open("CSV_Files/Distances.csv") as distance_file:
-    reader = csv.reader(distance_file)
-    distances = list(reader)
+#Get the distance between 2 addresses
+#def get_address_distances(address1, address2):
 
-print(hash_table.get(7).address)
+address2 = hash_table.get(4).address
+address1 = hash_table.get(5).address
+
+address_manager = AddressManager()
+
+difference = address_manager.get_address_differences(address1, address2)
+
+
+
+print(f"The distance between {address1} and {address2} is: {difference}")
 #Instantiating and "Loading" the trucks with a list of the package IDs.
 #truck1 = Truck(16, 0, [], 18, 0.0, )
