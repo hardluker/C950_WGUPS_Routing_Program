@@ -16,9 +16,18 @@ class Package:
         self.notes = notes
         self.departure_time = None
         self.delivery_time = None
+        self.truck_number = None
 
-    def get_status(self):
-        if self.delivery_time <
+    # Method for defining status based on time input.
+    def update_status(self, time):
+        if self.delivery_time < time:
+            self.status = "Delivered"
+        elif self.departure_time > time:
+            self.status = "Out for Delivery"
+        else:
+            self.status = "In Hub"
+
+
 
     # Method for converting object to string
     def __str__(self):

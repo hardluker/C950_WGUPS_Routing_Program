@@ -1,10 +1,8 @@
 import datetime
 
-from PackageManager import PackageManager
-from AddressManager import AddressManager
-from Truck import Truck
 
 class DispatchManager:
+    # Standard Contructor for utilizing the PackageManager and the AddressManager
     def __init__(self, package_manager, address_manager):
         self.package_manager = package_manager
         self.address_manager = address_manager
@@ -19,7 +17,14 @@ class DispatchManager:
             elif package.delivery_deadline == "9:00 AM":
                 package.priority = 3
 
+    # This method is for assigning a package to a specific truck
+    def assign_to_truck(self, package_ids, truck):
+        for ID in package_ids:
+            package = self.package_manager.get_package(ID)
+            package.truck_number = truck.truck_number
+
     # Utilizing nearest neighbor algorithm while updating truck time and package delivery information
+    # This method simulates the delivery
     def simulate_delivery(self, package_list, truck):
         # while the list is not empty
         while len(package_list) > 0:
@@ -50,10 +55,14 @@ class DispatchManager:
 
 
 
-
+    # Ties everything together, sorts packages by priority, sends the trucks through the simulation
     def dispatch(self, truck):
         #Flagging the package priorities
         self.prioritize_packages(truck.packages)
+
+        # Assigning the packages to the truck
+        self.assign_to_truck(truck.packages, truck)
+
 
         # Lists for containing different tier package priorities
         standard_priority_packages = []

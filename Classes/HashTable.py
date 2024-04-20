@@ -1,6 +1,5 @@
 class HashTable:
 
-
     # Create empty bucket list of given size
     def __init__(self, size):
         self.size = size
@@ -42,7 +41,7 @@ class HashTable:
             bucket.append((key, val))
 
     # Return searched value with specific key
-    def get(self, key):
+    def look_up(self, key):
 
         # Get the index from the key using
         # hash function

@@ -1,3 +1,7 @@
+'''
+
+NOTE: THIS IS NOT IN USE BUT FOR POTENTIAL FUTURE INTEGRATION FOR AUTOMATIC LOADING
+
 from Truck import Truck
 from PackageManager import PackageManager
 import re
@@ -110,3 +114,5 @@ class TruckLoader:
                 else:
                     self.load_truck(3, ID)
         self.clear_queues()
+
+'''
