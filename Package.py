@@ -3,7 +3,7 @@ class Package:
 
 
     #Constructor initializing variables
-    def __init__(self, ID, address, city, state, zip, delivery_deadline, weight, status, priority):
+    def __init__(self, ID, address, city, state, zip, delivery_deadline, weight, status, priority, notes):
         self.ID = ID
         self.address = address
         self.city = city
@@ -13,10 +13,15 @@ class Package:
         self.weight = weight
         self.status = status
         self.priority = priority
+        self.notes = notes
+        self.departure_time = None
+        self.delivery_time = None
 
+    def get_status(self):
+        if self.delivery_time <
 
-    #Method for converting object to string
+    # Method for converting object to string
     def __str__(self):
-        return "%s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.ID, self.address, self.city, self.state, self.zip,
-                                                       self.delivery_deadline, self.weight,
-                                                       self.status, self.priority)
+        return f"Package ID: {self.ID}, Address: {self.address}, City: {self.city}, State: {self.state}, ZIP: {self.zip}, " \
+               f"Delivery Deadline: {self.delivery_deadline}, Weight: {self.weight}, Status: {self.status}, Priority: {self.priority}"
+

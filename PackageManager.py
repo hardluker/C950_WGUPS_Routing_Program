@@ -27,13 +27,17 @@ class PackageManager:
             zip_code = package[4]
             delivery_deadline = package[5]
             weight = package[6]
+            notes = package[7]
             status = "In Hub"
             priority = 1
 
             # Inputting the data into a package object
             package_to_insert = Package(package_id, address, city, state, zip_code,
-                                        delivery_deadline, weight, status, priority)
+                                        delivery_deadline, weight, status, priority, notes)
             hash_table.insert(package_id, package_to_insert)
 
     def get_package(self, package_id):
         return self.hash_table.get(package_id)
+
+    def update_address(self, package_id, address):
+        self.hash_table.get(package_id).address = address
