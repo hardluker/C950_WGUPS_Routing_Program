@@ -54,8 +54,6 @@ dispatch_manager.dispatch(truck1)
 #Dispatching Truck 3
 dispatch_manager.dispatch(truck3)
 
-# Updating the package address for package 9 at 10:20 am
-package_manager.update_address(9, "410 S State St")
 #Dispatching Truck 2
 dispatch_manager.dispatch(truck2)
 

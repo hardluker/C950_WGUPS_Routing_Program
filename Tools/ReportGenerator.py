@@ -1,3 +1,6 @@
+import datetime
+
+
 class ReportGenerator:
 
     # Constructor for utilizing the package manager and address manager
@@ -16,6 +19,13 @@ class ReportGenerator:
     def get_package_status(self, ID, time):
         package = self.package_manager.get_package(ID)
         package.update_status(time)
+
+        #Updating package 9 at 10:20 AM
+        time_check = datetime.timedelta(hours=10, minutes=20)
+        if time >= time_check:
+            self.package_manager.update_address(9, "410 S State St")
+
+
         print(f"At {time}, the package was {package.status}.")
         print(f"The package delivery address is: {package.address}")
         print(f"Delivery time is {package.delivery_time}")
@@ -24,6 +34,11 @@ class ReportGenerator:
     # Method for getting a full report on packages at a specific time
     def full_report(self, time):
         packages = self.package_manager.packages
+
+        #Updating Package 9 at 10:20AM
+        time_check = datetime.timedelta(hours=10, minutes=20)
+        if time >= time_check:
+            self.package_manager.update_address(9, "410 S State St")
         #Report Header
         print(f"==== Full Package Report at Time: {time} ====")
 

@@ -22,7 +22,7 @@ class Package:
     def update_status(self, time):
         if self.delivery_time < time:
             self.status = "Delivered"
-        elif self.departure_time > time:
+        elif self.departure_time < time:
             self.status = "Out for Delivery"
         else:
             self.status = "In Hub"
